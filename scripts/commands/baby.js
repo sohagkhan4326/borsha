@@ -42,7 +42,7 @@ else if (args[0] === 'rm' && dipto.includes('-')) {
 }
     //-------------------------------------//
    else if (args[0] === 'list') {
-        const respo = await axios.get(`https://noobs-apihouse.onrender.com/dipto?list=all`);
+        const respo = await axios.get(`https://noobs-apihouse.onrender.com/dipto/baby?list=all?list=all`);
         const d = respo.data.length;
         api.sendMessage(`Total Teach ${d}`, event.threadID, event.messageID);
     }
