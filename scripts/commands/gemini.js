@@ -2,13 +2,14 @@ const axios = require("axios");
 
 module.exports.config = {
   name: "gemini",
-  version: "1.0",
+  version: "2.0.0",
+  permission: 0,
   credits: "Dipto",
-  description: "gemini ai",
-  cooldowns: 5,
-  role: 0,
-  commandCategory: "google",
+  description: "gemini ai", // Fixed typo here
+  prefix: false,
+  category: "google",
   usages: "{pn} message | photo reply",
+  cooldowns: 5,
 };
 
 module.exports.run = async function ({ api, args, event }) {
