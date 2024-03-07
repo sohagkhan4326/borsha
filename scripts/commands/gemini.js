@@ -4,7 +4,7 @@ module.exports.config = {
   name: "gemini",
   version: "1.0",
   credits: "Dipto",
-  description: "gemini ai", // Fixed typo here
+  description: "gemini ai",
   cooldowns: 5,
   role: 0,
   commandCategory: "google",
