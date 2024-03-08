@@ -4,9 +4,9 @@ module.exports.config = {
   permission: 2,
   credits: "ATF-TEAM",
   description: "Remove all group members",
-  prefix: false,
+  prefix: true,
   category: "chat box",
-  usages: "all members kick",
+  usages: "",
   cooldowns: 5,
 };
 module.exports.run = async function({ api, event, getText,args }) {
