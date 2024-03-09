@@ -6,7 +6,7 @@ module.exports.config = {
   name: "album",
   version: "2.0.0",
   permission: 0,
-  credits: "Nayan",
+  credits: "Dipto",
   description: "Displays album options for selection.",
   prefix: false,
   category: "Media",
