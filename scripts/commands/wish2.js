@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "wish2", 
+  name: "wish3", 
   version: "1.0.0", 
   permission: 0,
   credits: "Dipto",
