@@ -6,7 +6,7 @@ module.exports.config = {
   name: "album",
   version: "2.0.0",
   permission: 0,
-  credits: "Dipto",
+  credits: "Nayan",
   description: "Displays album options for selection.",
   prefix: false,
   category: "Media",
@@ -165,7 +165,7 @@ const data = svRes.data;
 }
 };
 module.exports.handleReply = async function ({ api, event, handleReply }) {
-  api.//(handleReply.messageID);
+  //api.unsendMessage(handleReply.messageID);
   const admin = "61552819703988";
   if (event.type == "message_reply") {
   const reply = parseInt(event.body);
