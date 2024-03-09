@@ -14,7 +14,7 @@ module.exports.config = {
   cooldowns: 5,
 };
 
-module🌚.exports.run = async function ({ api, event, args}) {
+module.exports.run = async function ({ api, event, args}) {
   if (!args[0]){
     { api.setMessageReaction("😘", event.messageID, (err) => {}, true);
     }
