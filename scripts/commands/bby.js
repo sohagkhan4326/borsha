@@ -16,7 +16,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
   const reply = event.body.toLowerCase();;
   if (isNaN(reply)) {
-    const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/baby?remove=${fi}&index=${f?text=${encodeURIComponent(reply)}`)
+    const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/baby?text=${encodeURIComponent(reply)}`)
        const ok = response.data.reply;
     await api.sendMessage(ok ,event.threadID,(error, info) => {
   global.client.handleReply.push({
@@ -32,7 +32,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
   const reply = event.body.toLowerCase();;
   if (isNaN(reply)) {
-    const response = await axios.get(`https://yw2tgw-3000.csb.app/dipto?text=${encodeURIComponent(reply)}`)
+    const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/baby?text=${encodeURIComponent(reply)}`)
        const yy = response.data.reply;
     await api.sendMessage(yy,event.threadID,event.messageID)
   }
@@ -46,7 +46,7 @@ module.exports.run = async function ({ api, args, event }) {
         "Please provide a question to answer\n\nExample:\nbaby ki koro",
   event.threadID,  event.messageID ); return;}
     if (dipto) {
-      const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/baby?remove=${fi}&index=${f?text=${dipto}`);
+      const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/baby?text=${dipto}`);
          const mg = response.data.reply;
       await api.sendMessage({body: mg ,},event.threadID,(error, info) => {
   global.client.handleReply.push({
