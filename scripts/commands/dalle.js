@@ -1,16 +1,14 @@
 const axios = require('axios');
 const fs = require('fs-extra');
 module.exports.config = {
-  module.exports.config = {
   name: "dalle",
-  version: "2.0.0",
-  permission: 0,
-  credits: "Dipto",
-  description: "Meta AI Image Generator",
-  prefix: true,
-  category: "imagination",
-  usages: "",
-  cooldowns: 5,
+  version: "1.0.0",
+  hasPermssion: 0,
+  credits: "dipto",
+  Prefix: true,
+  description: "Meta AI Image Generator.",
+  Category: "imagination",
+  cooldowns: 5
 };
 module.exports.run = async function ({ args, event, api }) {
   try {
