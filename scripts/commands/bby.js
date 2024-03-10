@@ -4,7 +4,7 @@ module.exports.config = {
   name: "bby",
   version: "2.0.0",
   permission: 0,
-  credits: "Nayan",
+  credits: "Dipto",
   description: "simi simi",
   prefix: false,
   category: "chat bots",
