@@ -32,4 +32,4 @@ module.exports.run = function (){{ try {
       console.error('An error occurred:', e);
     }
 
-                }};
+}}
