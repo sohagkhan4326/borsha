@@ -1,10 +1,9 @@
 const axios = require('axios');
-
 module.exports.config = {
   name: "imgur",
   version: "2.0.0",
   permission: 0,
-  credits: "Nayan",
+  credits: "Dipto",
   description: "convert image/video into Imgur link",
   prefix: false,
   category: "tools",
