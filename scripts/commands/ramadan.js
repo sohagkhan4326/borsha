@@ -1,4 +1,3 @@
-
 module.exports.config = {
   name: "ramadan",
   version: "0.0.1",
@@ -17,7 +16,7 @@ module.exports.run = async function({
   api: a,
   args: n
 }) {
-  if (!n[0]) return a.sendMessage("====「 🆁🅰🅼🅰🅳🅰🅽 」====\n━━━━━━━━━━━━━\n𝟙.𝐒𝐞𝐡𝐫𝐢 𝐓𝐢𝐦𝐞\n𝟚.𝐈𝐟𝐭𝐚𝐫 𝐓𝐢𝐦𝐞\n𝟛. 𝐈𝐟𝐭𝐚𝐫 𝐃𝐮𝐚\n𝟜. 𝐑𝐮𝐣𝐚𝐫 𝐍𝐢𝐲𝐨𝐭\n\n𝐑𝐞𝐩𝐥𝐲 𝐓𝐡𝐢𝐬 𝐌𝐬𝐠 𝐀𝐧𝐝 𝐒𝐞𝐥𝐞𝐜𝐭 𝐍𝐮𝐦𝐛𝐞𝐫", e.threadID, ((a, n) => {
+  if (!n[0]) return a.sendMessage("====「 🆁🅰🅼🅰🅳🅰🅽 」====\n━━━━━━━━━━━━━\n𝟙. 𝐒𝐞𝐡𝐫𝐢 𝐓𝐢𝐦𝐞\n𝟚. 𝐈𝐟𝐭𝐚𝐫 𝐓𝐢𝐦𝐞\n𝟛. 𝐈𝐟𝐭𝐚𝐫 𝐃𝐮𝐚\n𝟜. 𝐑𝐮𝐣𝐚𝐫 𝐍𝐢𝐲𝐨𝐭\n𝟝. 𝐑𝐮𝐣𝐚 𝐕𝐚𝐧𝐠𝐚𝐫 𝐊𝐚𝐫𝐨𝐧\n𝟞. 𝐉𝐞𝐠𝐮𝐥𝐚 𝐊𝐨𝐫𝐥𝐞 𝐑𝐮𝐣𝐚 𝐕𝐚𝐧𝐠𝐞 𝐧𝐚\n\n𝐑𝐞𝐩𝐥𝐲 𝐓𝐡𝐢𝐬 𝐌𝐬𝐠 𝐀𝐧𝐝 𝐒𝐞𝐥𝐞𝐜𝐭 𝐍𝐮𝐦𝐛𝐞𝐫", e.threadID, ((a, n) => {
     global.client.handleReply.push({
       name: this.config.name,
       messageID: n.messageID,
@@ -40,11 +39,11 @@ module.exports.run = async function({
     const n = (await p.get(h)).data.data;
     const time = (await p.get(h)).data.times.time;
     const msg = (await p.get(h)).data.msg;
-    
-    
+
+
     return e.sendMessage({
       body: `${msg}: ${time}`
-      
+
     }, a.threadID, a.messageID)
   }
 
@@ -59,6 +58,10 @@ module.exports.run = async function({
          var   h = `${n}/nayan/iftardua`;
       else if ("4" == a.body)
          var   h = `${n}/nayan/rujarniyot`;
+      else if ("5" == a.body)
+         var   h = `${n}/nayan/rujavk`;
+      else if ("6" == a.body)
+         var   h = `${n}/nayan/rujavkn`;
         return { p, h };
     }
 };
