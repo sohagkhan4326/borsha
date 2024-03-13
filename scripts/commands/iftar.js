@@ -1,4 +1,5 @@
 const axios = require('axios');
+const fs = require('fs');
 const moment = require('moment-timezone');
 
 module.exports.config = {
@@ -20,6 +21,8 @@ exports.run = async function ({ api, args, event }) {
          return api.sendMessage("❎ | Please Enter a City Name...", event.threadID, event.messageID);
        }
         try {
+{ api.setMessageReaction("🐤", event.messageID, (err) => {}, true);
+    }
             const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/iftar?name=${encodeURIComponent(cityName)}`);
             const iftarInfo = response.data;
 
@@ -63,14 +66,11 @@ exports.run = async function ({ api, args, event }) {
 🥰 𝐀𝐬𝐬𝐚𝐥𝐚𝐦𝐮 𝐀𝐥𝐚𝐢𝐤𝐮𝐦 🥰
             `;
 
-         const imageResponse = await axios.get(iftarInfo.url, {
-            responseType: 'arraybuffer'
-        });
-        const imageBuffer = Buffer.from(imageResponse.data, 'binary');
-        await api.sendMessage({
-            body: formattedResponse,
-            attachment: imageBuffer
-        }, event.threadID);
+         const imageResponse = await axios.get(iftarInfo.url, {responseType: 'arraybuffer'});
+      const filename = __dirname + `/cache/iftar.png`;
+    fs.writeFileSync(filename, Buffer.from(imageResponse.data, 'binary'));
+        await api.sendMessage({body: formattedResponse,attachment: fs.createReadStream(filename),},event.threadID,
+() => fs.unlinkSync(filename),event.messageID);
     } catch (error) {
         console.error('❎ | Error fetching iftar data:', error);
         api.sendMessage("❎ | An error occurred while processing the request.", event.threadID);
