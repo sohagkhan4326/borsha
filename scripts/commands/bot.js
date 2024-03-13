@@ -1,29 +1,45 @@
-module.exports.config = {
-  name: "bot",
-  version: "2.0.0",
+const axios = require('axios');
+const jimp = require("jimp");
+const fs = require("fs");
+
+module.exports.config = { 
+  name: "teach",
+  version: "0.0.2",
   permission: 0,
+  prefix: true,
   credits: "Nayan",
-  description: "Simple Banglish Ai Chatbot",
-  prefix: false,
-  category: "ai robot",
-  usages: "/meta [typeinBanglish]",
-  cooldowns: 5,
+  description: "Teach bot",
+  category: "admin",
+  usages: "hi = hello",
+    cooldowns: 5,
 };
-module.exports.run = async ({
-  api: _0x3bec5f,
-  event: _0x43a287,
-  args: _0x47ac54
-}) => {
-  const _0x17c6ba = require("axios");
-  if (_0x47ac54.join() == '') {
-    return _0x3bec5f.sendMessage(" Hey ,I am mesenger bot  😎 \n\n আমাকে ব্যাবহার করতে [bot]লিখে কিছু জিগ্গেস করুন 🤗 \n\n [𝐎𝐖𝐍𝐄𝐑:☞𝐒𝐎𝐇𝐀𝐆 𝐊𝐇𝐀𝐍 (✷‿✷)☜ 😼 ",_0x43a287.threadID, _0x43a287.messageID);
-  } else {
-    let _0x3efe3e = encodeURI(_0x47ac54.join(" "));
-    const _0x11de5e = await _0x17c6ba.post("https://api.simsimi.vn/v1/simtalk", new URLSearchParams({
-      'text': '' + _0x3efe3e,
-      'lc': 'bn'
-    }));
-    var _0xc34af = _0x11de5e.data.message;
-    return _0x3bec5f.sendMessage('' + _0xc34af, _0x43a287.threadID, _0x43a287.messageID);
-  }
-};
+
+  module.exports.run = async function({ api, event, args, Users, Threads, Currencies}) {
+    const uid = event.senderID;
+    const info = args.join(" ");
+    var n = global.nayan_api
+    var id = Object.keys(event.mentions)[0] || event.senderID;
+  var nam = await Users.getNameUser(id);
+  var ThreadInfo = await api.getThreadInfo(event.threadID);
+    if (!info) {
+      return api.sendMessage(`Please enter in the format:\n${global.config.PREFIX}teach hi = hello`, event.threadID);
+    } else {
+      const msg = info.split("=");
+      const ask = msg[0].trim();
+      const ans = msg[1].trim();
+
+
+      const img = `http://game2.jagoanvps.cloud:5059/sim?type=teach&ask=${ask}&ans=${ans}`
+      try {
+        const response = await axios.get(img);
+
+
+                api.sendMessage({ 
+          body: `📝Your Data Added To Database Successfully\n1️⃣ASK: ${ask}\n2️⃣ANS: ${ans}`
+                        }, event.threadID);
+                      } catch (error) {
+                        console.error(error);
+                        api.sendMessage("An error occurred while  teach.", event.threadID);
+                      }
+                    }
+                  };
