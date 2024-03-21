@@ -6,7 +6,7 @@ module.exports.config = {
   permission: 0,
   credits: "Dipto",
   description: "gemini ai", // Fixed typo here
-  prefix: false,
+  prefix: true,
   category: "google",
   usages: "{pn} message | photo reply",
   cooldowns: 5,
