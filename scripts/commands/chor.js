@@ -32,7 +32,7 @@ module.exports.onLoad = async () => {
     });
   }
   if (!_0x58018c(_0x7a9f3a)) {
-    await _0x5a7570("https://i.imgur.com/AgvjN3s.jpg", _0x7a9f3a);
+    await _0x5a7570("https://i.imgur.com/jN6GW0V.jpeg", _0x7a9f3a);
   }
 };
 async function makeImage({
