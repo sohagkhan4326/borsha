@@ -16,7 +16,7 @@ module.exports.run = async function({ api, event, args }) {
     let tid = threadID,
     mid = messageID;
     const content = encodeURIComponent(args.join(" "));
-    if (!args[0]) return api.sendMessage("he jan bolo ki bolba😘😍"bolo baby", tid, mid);
+    if (!args[0]) return api.sendMessage("he jan bolo ki bolba😘😍", tid, mid);
     try {
         const res = await axios.get(`https://simsimi.fun/api/v2/?mode=talk&lang=bn&message=${content}&filter=false`);
         const respond = res.data.success;
