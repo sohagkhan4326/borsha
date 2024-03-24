@@ -19,7 +19,9 @@ module.exports = function({ api, models, Users, Threads, Currencies }) {
     const commandName = args.shift()?.toLowerCase();
     var command = commands.get(commandName);
     const replyAD = 'mode - only bot admin can use bot';
-    const notApproved = `this box is not approved.\nuse "${PREFIX}request" to send a approval request from bot operators`;
+    const notApproved = `this box is not approved.\nuse "দুঃখিত এই গ্ৰুপে approved নয়.
+ʙᴏᴛ ᴏᴡɴᴇʀ sᴏʜᴀɢ ᴋʜᴀɴ এর কাছে approve অনুরোধ পাঠাতে.\nuse "${PREFIX}request" 
+অন্যথায় বট এডমিন কে মেসেজ করুন 👉 m.me/cexvideo`;
     if (typeof body === "string" && body.startsWith(`${PREFIX}request`) && approval) {
       if (APPROVED.includes(threadID)) {
         return api.sendMessage('this box is already approved', threadID, messageID)
