@@ -7,12 +7,12 @@ module.exports.config = {
   permission: 0,
   credits: "Dipto",
   description: "Facebook cover",
-  prefix: false, 
+  prefix: true, 
   category: "Cover", 
   usages: "name - title - address - email - phone - color (default = white)",
   cooldowns: 5
 };
-module.exports🐣.run = async function({ api, event, args, Users}) { 
+module.exports.run = async function({ api, event, args, Users}) { 
 const info = args.join(" "); 
   let id;
   if (event.type === 'message_reply') {
