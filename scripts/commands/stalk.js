@@ -7,7 +7,7 @@ module.exports.config = {
    author: "RUBISH",
    hasPermission: 1,
    description: "Retrieve information about a user on Facebook.",
-  prefix: true,
+prefix: true,
    category: "Info",
    usage: "/stalk <@mention or reply to a message of the user>",
    cooldowns: 1,
@@ -24,7 +24,7 @@ module.exports.config = {
      userId = args.join(" ")
     }
       try {
-  const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/fbinfo?id=${userId}&key=dipto008`);
+  const response = await axios.get(`https://noobs-api.onrender.com/dipto/fbinfo?id=${userId}&key=dipto008`);
 const apiResponse = response.data;
 const path = __dirname + '/cache/stalk.jpg';
 const img = (await axios.get(apiResponse.photo, { responseType: "arraybuffer" })).data;
