@@ -32,7 +32,7 @@ module.exports.run = async function({ api, event, args }) {
     allimage.push(fs.createReadStream(__dirname + "/cache/img1.mp4"));
 
     {
-        msg += `°\n\n__${cp}\n\n✨🌺[𝐎𝐖𝐍𝐄𝐑:☞𝐒𝐎𝐇𝐀𝐆 𝐊𝐇𝐀𝐍 (✷‿✷)☜!🍂`
+        msg += `°\n\n__💬:____𝐍𝐞𝐯𝐞𝐫 𝐜𝐡𝐚𝐧𝐠𝐞 𝐲𝐨𝐮𝐫 𝐩𝐞𝐫𝐬𝐨𝐧𝐚𝐥𝐢𝐭𝐲-!!😊🖤\n____যে ভালোবাসার সে তোমাকে তোমার মতোই ভালোবাসবে-!!❤️🥀😊シ━━━━━━━━━━━━━━━━━━\n\n✨🌺[𝐎𝐖𝐍𝐄𝐑:☞𝐒𝐎𝐇𝐀𝐆 𝐊𝐇𝐀𝐍 (✷‿✷)☜!🍂`
 
     }
 
