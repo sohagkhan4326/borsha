@@ -53,7 +53,7 @@ module.exports.run = async function ({ api, event, args, Currencies, Users }) {
   ◙ এৃ্ঁখৃ্ঁনৃ্ঁ সৃ্ঁমৃ্ঁয়ৃ্ : 【${supremo}】
 
   ◙【${rahad6}】
-  ﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏`;
+  ﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏\n◙【ʙᴏᴛ ᴏᴡɴᴇʀs : sᴏʜᴀɢ ᴋʜᴀɴ 】`;
 
   api.sendMessage({ body: rahad3, attachment: rahad2 }, event.threadID, event.messageID);
 };
