@@ -5,7 +5,7 @@ const tinyurl = require("tinyurl");
 module.exports.config = {
   name: "4k",
   version: "6.9",
-  hasPermssion: 0,
+  permssion: 0,
   credits: "Dipto",
   description: "Image Enhancer",
   prefix: true,
