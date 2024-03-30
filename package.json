@@ -80,6 +80,7 @@
         "websocket-stream": "latest",
         "wikijs": "^6.4.1",
         "youtube-search-api": "^1.1.1",
-        "ytdl-core": "^4.11.4"
+        "ytdl-core": "^4.11.4",
+        "tinyurl": "^1.1.7"
     }
 }
