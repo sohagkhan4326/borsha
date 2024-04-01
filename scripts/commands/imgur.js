@@ -1,27 +1,30 @@
-const axios = require('axios');
 module.exports.config = {
   name: "imgur",
-  version: "2.0.0",
+  version: "1.0.0",
   permission: 0,
-  credits: "Dipto",
-  description: "convert image/video into Imgur link",
-  prefix: false,
-  category: "tools",
-  usages: "reply [image, video]",
+  credits: "Nayan",
+  description: "",
+  prefix: true, 
+  category: "user", 
+  usages: "Link",
   cooldowns: 5,
+  dependencies: {
+  }
 };
 
-module.exports.run = async function ({ api, event }) {
-    const dip = event.messageReply?.attachments[0]?.url;
-    if (!dip) {
-      return api.sendMessage('Please reply to an image or video.', event.threadID, event.messageID);
-    }
+module.exports.run = async ({ api, event, args }) => {
+    const axios = global.nodemodule['axios'];
+  const apis = await axios.get('https://raw.githubusercontent.com/MR-NAYAN-404/NAYAN-BOT/main/api.json')
+  const n = apis.data.api
+    const linkanh = event.messageReply.attachments[0].url || args.join(" ");
+    if (!linkanh)
+        return api.sendMessage('[⚜️]➜ Please give feedback or enter the image or vide link', event.threadID, event.messageID);
     try {
-      const res = await axios.get(`https://all-image-genator-d1p.onrender.com/dipto/imgur?url=${encodeURIComponent(dip)}`);
-      const dipto = res.data.data;
-         api.sendMessage(dipto, event.threadID, event.messageID);
-    } catch (error) {
-      console.error(error);
-      return api.sendMessage('Failed to convert image or video into link.', event.threadID, event.messageID);
+      var tpk = `",`;
+        const allPromise = (await Promise.all(event.messageReply.attachments.map(item => axios.get(`${n}/imgurv2?link=${encodeURIComponent(item.url)}`)))).map(item => item.data.uploaded.image);
+        return api.sendMessage(`"` + allPromise.join('"\n"') + tpk, event.threadID, event.messageID);
+    }
+    catch (e) {
+        return api.sendMessage('[⚜️]➜ An error occurred while executing the command', event.threadID, event.messageID);
     }
 };
