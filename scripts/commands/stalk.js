@@ -6,7 +6,7 @@ const request = require("request");
 module.exports.config = {
     name: "stalk",
     version: "1.0.0",
-    hasPermision: 0,
+    Permision: 0,
     credits: `Deku & Yan Maglinte`, //Added Canvas Design by Yan
     description: "get info using uid/mention/reply to a message",
     Prefix: true,
