@@ -4,7 +4,7 @@ const herc = new Hercai();
 module.exports.config = {
   name: 'ai',
   version: '1.1.0',
-  hasPermssion: 0,
+  Permssion: 0,
   credits: 'Yan Maglinte',
   description: 'An AI command using Hercai API!',
   Prefix: false,
