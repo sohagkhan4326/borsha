@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "borsha",
+    name: "rahi",
     version: "1.0.0",
     hasPermssion: 0,
     credits: "EMon-BHai",
