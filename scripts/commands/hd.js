@@ -1,61 +1,63 @@
-const axios = require('axios');
-const fs = require('fs-extra');
-const tinyurl = require("tinyurl");
-
 module.exports.config = {
-  name: "4k",
-  version: "6.9",
-  hasPermssion: 0,
-  credits: "Dipto",
-  description: "Image Enhancer",
-  prefix: true,
-  category: "Noprefix",
-  usages: "Reply to a photo to enhance image",
-  cooldowns: 3,
-};
-
-module.exports.handleEvent = async function ({ api, event }) {
-  if (!(event.body.indexOf("4k") === 0 || event.body.indexOf("HD") === 0)) return;
-  const args = event.body.split(/\s+/);
-  args.shift();
-
-
-  const { threadID, messageID } = event;
-
-  const photoUrl = event.messageReply?.attachments[0]?.url || args.join(" ");
-
-  if (!photoUrl) {
-    api.sendMessage("🔰 | Please reply to a photo to proceed enhancing images...", threadID, messageID);
-    return;
-  }
-
-   const finalUrl = await tinyurl.shorten(photoUrl);
-
-  api.sendMessage("⏳ | Enhancing please wait...", threadID, async () => {
-    try {
-      const response = await axios.get(`https://noobs-api.onrender.com/dipto/4k?img=${encodeURIComponent(finalUrl)}&key=dipto008`);
-
-      const ImageURL = response.data.dipto;
-
-      const img = (await axios.get(ImageURL, { responseType: "arraybuffer" })).data;
-      
-      const dipto = response.data.author;
-      const ShortUrl = await tinyurl.shorten(ImageURL);
-      const fuck = __dirname + `/cache/fuck.jpg`;
-
-      fs.writeFileSync(fuck, Buffer.from(img, 'binary'));
-       api.setMessageReaction("✅", messageID, (err) => {}, true);
-      api.sendMessage({
-        body: `
-        ✅ | Successfully enhanced your image...
-        🔰 | Author: ${dipto}
-        ☂ | Download Link: ${ShortUrl}`,
-        attachment: fs.createReadStream(fuck)
-      }, threadID, () => fs.unlinkSync(fuck), messageID);
-    } catch (error) {
-      api.sendMessage(`❎ | Error while processing image: ` + error, threadID, messageID);
+    name: "4k",
+    version: "1.0.0",
+    permission: 0,
+    credits: "Nayan",
+    description: "",
+    prefix: true,
+    category: "prefix",
+    usages: "[model]",
+    cooldowns: 10,
+    dependencies: {
+       'nayan-server': ''
     }
-  });
 };
 
-module.exports.run = async function ({ api, event }) {};
+
+
+
+
+module.exports.run = async function({ api, event, args }) {
+  
+    const axios = require("axios")
+    const request = require("request")
+    const fs = require("fs-extra")
+    const {upscale} = require('nayan-server')
+          if (event.type !== "message_reply") return api.sendMessage("[❗]➜ You must reply to a photo", event.threadID, event.messageID);
+        if (!event.messageReply.attachments || event.messageReply.attachments.length == 0) return api.sendMessage("[❗]➜ You must reply to a photo", event.threadID, event.messageID);
+        if (event.messageReply.attachments[0].type != "photo") return api.sendMessage("[❓]➜ This is not an image", event.threadID, event.messageID);
+  const content = (event.type == "message_reply") ? event.messageReply.attachments[0].url : args.join(" ");
+  
+  const mod = args[0];
+  
+const model = mod
+  try {
+const res = await upscale(content, model)
+  console.log(res)
+  api.setMessageReaction("✅", event.messageID, (err) => {
+      }, true);
+  const img1 = res.image_url
+  const job = res.job_id
+        var msg = [];
+
+  const pic = (
+    await axios.get(`https://images.prodia.xyz/${job}.png`,
+      { responseType: 'stream' }
+    )
+  ).data;
+
+        {
+            msg += `✅HERE YOUR PHOTO`
+        }
+
+        return api.sendMessage({
+            body: msg,
+            attachment: pic
+
+        }, event.threadID, event.messageID);
+     } catch (err) {
+     api.setMessageReaction("❌", event.messageID, (err) => {
+    }, true);
+      api.sendMessage(`🔰Use ${global.config.PREFIX}${this.config.name} [model]\n🔰Example:${global.config.PREFIX}${this.config.name} 1\n\n🔥Total Model limit 2...`, event.threadID, event.messageID);  
+     }
+  };
